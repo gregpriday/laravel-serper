@@ -12,7 +12,6 @@ class SerperTest extends TestCase
      *
      * Method should handle the search and return the correct type of results, based on the search type ('search' or 'news').
      *
-     * @return void
      * @throws GuzzleException
      */
     public function test_search(): void

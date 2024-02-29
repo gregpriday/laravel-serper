@@ -22,7 +22,7 @@ class Serper
 
     private string $endpoint;
 
-    public function __construct(?string $key = null, ?string $endpoint = null, Client $client = null)
+    public function __construct(?string $key = null, ?string $endpoint = null, ?Client $client = null)
     {
         $this->key = $key ?? '';
         $this->endpoint = $endpoint ?? self::SERPER_ENDPOINT;
