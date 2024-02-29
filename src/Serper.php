@@ -22,12 +22,12 @@ class Serper
 
     private string $endpoint;
 
-    public function __construct(?string $key = null, ?string $endpoint = null)
+    public function __construct(?string $key = null, ?string $endpoint = null, Client $client = null)
     {
         $this->key = $key ?? '';
         $this->endpoint = $endpoint ?? self::SERPER_ENDPOINT;
 
-        $this->client = new Client([
+        $this->client = $client ?? new Client([
             'base_uri' => $this->endpoint,
             'headers' => [
                 'X-API-KEY' => $this->key,
