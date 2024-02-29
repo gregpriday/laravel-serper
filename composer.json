@@ -2,9 +2,11 @@
     "name": "gregpriday/laravel-serper",
     "description": "This is my package laravel-serper",
     "keywords": [
-        "Greg Priday",
         "laravel",
-        "laravel-serper"
+        "serper.dev",
+        "search api",
+        "google search",
+        "api wrapper"
     ],
     "homepage": "https://github.com/gregpriday/laravel-serper",
     "license": "MIT",
