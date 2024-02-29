@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace GregPriday\LaravelSerper\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelSerperCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-serper';
 
     public $description = 'My command';
 
