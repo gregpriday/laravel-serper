@@ -1,84 +1,94 @@
-# This is my package laravel-serper
+# Laravel Serper Package README
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/gregpriday/laravel-serper.svg?style=flat-square)](https://packagist.org/packages/gregpriday/laravel-serper)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/gregpriday/laravel-serper/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/gregpriday/laravel-serper/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/gregpriday/laravel-serper/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/gregpriday/laravel-serper/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/gregpriday/laravel-serper.svg?style=flat-square)](https://packagist.org/packages/gregpriday/laravel-serper)
+## Introduction
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+The Laravel Serper package is a simple, efficient wrapper around the [Serper.dev API](https://serper.dev/), designed to integrate seamlessly with Laravel applications. It provides a fluent, expressive interface to perform searches and retrieve news results from Google via Serper.dev, making it easier for developers to include search functionalities in their Laravel applications.
 
-## Support us
+## Features
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-serper.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-serper)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+- Easy-to-use facade for performing searches and retrieving news results.
+- Support for single and multiple queries with customizable parameters.
+- Integration with Laravel's service container for easy configuration and extension.
+- Utilizes GuzzleHttp for efficient HTTP requests.
+- Includes a suite of unit tests for reliability and maintainability.
 
 ## Installation
 
-You can install the package via composer:
+To install the Laravel Serper package, run the following command in your terminal:
 
 ```bash
 composer require gregpriday/laravel-serper
 ```
 
-You can publish and run the migrations with:
+After installation, publish the package's configuration file by running:
 
 ```bash
-php artisan vendor:publish --tag="laravel-serper-migrations"
-php artisan migrate
+php artisan vendor:publish --provider="GregPriday\LaravelSerper\SerperServiceProvider"
 ```
 
-You can publish the config file with:
+## Configuration
 
-```bash
-php artisan vendor:publish --tag="laravel-serper-config"
+Before using the Serper package, you must obtain an API key from Serper.dev and add it to your `.env` file:
+
+```plaintext
+SERPER_API_KEY=your_serper_dev_api_key
 ```
 
-This is the contents of the published config file:
+Then, configure your API key in the `config/serper.php` configuration file:
 
 ```php
 return [
+    'key' => env('SERPER_API_KEY', ''),
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-serper-views"
 ```
 
 ## Usage
 
+The Laravel Serper package provides a simple API to perform search and news queries. Here's how you can use it:
+
+### Performing a Search
+
+To perform a search, use the `Serper::search` method:
+
 ```php
-$laravelSerper = new GregPriday\LaravelSerper();
-echo $laravelSerper->echoPhrase('Hello, GregPriday!');
+use GregPriday\LaravelSerper\Facades\Serper;
+
+$results = Serper::search('Laravel');
 ```
+
+### Retrieving News Results
+
+To retrieve news results, specify the type as 'news' in the `search` method:
+
+```php
+$newsResults = Serper::search('Laravel', 10, 'news');
+```
+
+### Performing Multiple Searches
+
+To perform multiple searches at once, use the `Serper::searchMulti` method:
+
+```php
+$queries = ['Laravel', 'PHP'];
+$results = Serper::searchMulti($queries, 10, 'search');
+```
+
+## Extending
+
+The package is designed to be easily extendable. You can extend or override the functionality by creating your own implementations and binding them to the service container in a service provider.
 
 ## Testing
 
+This package comes with a suite of PHPUnit tests. To run the tests, use the following command:
+
 ```bash
-composer test
+vendor/bin/pest
 ```
 
-## Changelog
+## Contribution
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [Greg Priday](https://github.com/gregpriday)
-- [All Contributors](../../contributors)
+Contributions are welcome! Please feel free to submit pull requests or open issues on the GitHub repository.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The Laravel Serper package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
