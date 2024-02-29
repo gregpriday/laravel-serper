@@ -21,6 +21,7 @@ trait ArrayConstructable
             $args[$name] = $data[$name] ?? null;
         }
 
+        /** @phpstan-ignore-next-line */
         return new static(...$args);
     }
 

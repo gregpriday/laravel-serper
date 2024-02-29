@@ -36,8 +36,7 @@
     },
     "autoload": {
         "psr-4": {
-            "GregPriday\\LaravelSerper\\": "src/",
-            "GregPriday\\LaravelSerper\\Database\\Factories\\": "database/factories/"
+            "GregPriday\\LaravelSerper\\": "src/"
         }
     },
     "autoload-dev": {

@@ -6,6 +6,7 @@ use GregPriday\LaravelSerper\Response\SerperNewsResults;
 use GregPriday\LaravelSerper\Response\SerperResults;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use InvalidArgumentException;
 
 class Serper
 {
@@ -56,6 +57,7 @@ class Serper
         $class = match ($type) {
             'search' => SerperResults::class,
             'news' => SerperNewsResults::class,
+            default => throw new InvalidArgumentException("Unsupported type: $type"),
         };
 
         return $class::fromArray($result);
@@ -90,6 +92,7 @@ class Serper
         $class = match ($type) {
             'search' => SerperResults::class,
             'news' => SerperNewsResults::class,
+            default => throw new InvalidArgumentException("Unsupported type: $type"),
         };
 
         return array_map(fn ($result) => $class::fromArray($result), $results);
