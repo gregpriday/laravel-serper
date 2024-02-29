@@ -2,9 +2,9 @@
 
 namespace GregPriday\LaravelSerper\Tests;
 
+use GregPriday\LaravelSerper\SerperServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use GregPriday\LaravelSerper\SerperServiceProvider;
 
 class TestCase extends Orchestra
 {

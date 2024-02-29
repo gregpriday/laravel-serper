@@ -14,7 +14,7 @@ class SerperResults
     public readonly SearchParameters $searchParameters;
 
     /**
-     * @param  OrganicResult[]  $organic The organic results from the search
+     * @param  OrganicResult[]  $organic  The organic results from the search
      *
      * @throws \Exception
      */

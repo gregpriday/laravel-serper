@@ -4,7 +4,6 @@ namespace GregPriday\LaravelSerper;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use GregPriday\LaravelSerper\Commands\LaravelSerperCommand;
 
 class SerperServiceProvider extends PackageServiceProvider
 {

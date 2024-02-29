@@ -34,7 +34,7 @@ trait ArrayConstructable
         $data = [];
         foreach ($properties as $property) {
             $name = $property->getName();
-            if($property->isPublic() && !empty($this->$name)) {
+            if ($property->isPublic() && ! empty($this->$name)) {
                 $data[$name] = $this->$name;
             }
         }
@@ -45,8 +45,8 @@ trait ArrayConstructable
     /**
      * Create an array of class instances from an array of arrays.
      *
-     * @param  ?array  $dataArray Array of arrays to process.
-     * @param  string  $className Name of the class to create instances of.
+     * @param  ?array  $dataArray  Array of arrays to process.
+     * @param  string  $className  Name of the class to create instances of.
      * @return array Array of class instances.
      *
      * @throws Exception

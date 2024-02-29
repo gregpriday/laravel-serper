@@ -18,9 +18,6 @@ class SearchParameters
 
     /**
      * SearchParameters constructor.
-     *
-     * @param string $q
-     * @param int $num
      */
     public function __construct(
         string $q, int $num

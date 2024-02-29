@@ -52,8 +52,8 @@ class OrganicResult
      * @throws Exception
      */
     public function __construct(
-        string $title, string $link, string $snippet, array $sitelinks = null,
-        int $price = null, string $currency = null, float $rating = null, int $reviewCount = null
+        string $title, string $link, string $snippet, ?array $sitelinks = null,
+        ?int $price = null, ?string $currency = null, ?float $rating = null, ?int $reviewCount = null
     ) {
         $this->title = $title;
         $this->link = $link;

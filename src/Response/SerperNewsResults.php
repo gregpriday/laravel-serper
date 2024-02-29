@@ -14,8 +14,7 @@ class SerperNewsResults
     public readonly SearchParameters $searchParameters;
 
     /**
-     * @param  NewsResult[] $news The organic results from the search
-     * @param  array $searchParameters
+     * @param  NewsResult[]  $news  The organic results from the search
      *
      * @throws \Exception
      */
