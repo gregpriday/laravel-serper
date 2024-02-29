@@ -6,7 +6,7 @@ use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use GregPriday\LaravelSerper\Commands\LaravelSerperCommand;
 
-class LaravelSerperServiceProvider extends PackageServiceProvider
+class SerperServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -17,9 +17,13 @@ class LaravelSerperServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-serper')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-serper_table')
-            ->hasCommand(LaravelSerperCommand::class);
+            ->hasConfigFile();
+    }
+
+    public function packageBooted()
+    {
+        $this->app->singleton(Serper::class, function () {
+            return new Serper(config('serper.key'));
+        });
     }
 }
