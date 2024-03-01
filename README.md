@@ -73,16 +73,12 @@ $queries = ['Laravel', 'PHP'];
 $results = Serper::searchMulti($queries, 10, 'search');
 ```
 
-## Extending
-
-The package is designed to be easily extendable. You can extend or override the functionality by creating your own implementations and binding them to the service container in a service provider.
-
 ## Testing
 
 This package comes with a suite of PHPUnit tests. To run the tests, use the following command:
 
 ```bash
-vendor/bin/pest
+vendor/bin/phpunit
 ```
 
 ## Contribution
