@@ -26,7 +26,7 @@ class OrganicResult
     /**
      * @var string The short snippet of the result.
      */
-    public readonly string $snippet;
+    public readonly ?string $snippet;
 
     /**
      * @var int|null The price information, if given.
@@ -52,7 +52,7 @@ class OrganicResult
      * @throws Exception
      */
     public function __construct(
-        string $title, string $link, string $snippet, ?array $sitelinks = null,
+        string $title, string $link, ?string $snippet, ?array $sitelinks = null,
         ?int $price = null, ?string $currency = null, ?float $rating = null, ?int $reviewCount = null
     ) {
         $this->title = $title;

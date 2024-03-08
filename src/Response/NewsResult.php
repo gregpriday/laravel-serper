@@ -21,7 +21,7 @@ class NewsResult
     /**
      * @var string The short snippet of the news article.
      */
-    public readonly string $snippet;
+    public readonly ?string $snippet;
 
     /**
      * @var string The publication date of the news article.
@@ -47,7 +47,7 @@ class NewsResult
      * @throws Exception
      */
     public function __construct(
-        string $title, string $link, string $snippet, string $date, string $source, ?string $imageUrl, int $position
+        string $title, string $link, ?string $snippet, string $date, string $source, ?string $imageUrl, int $position
     ) {
         $this->title = $title;
         $this->link = $link;
